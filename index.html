@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>Cookie Clicker Clone</title>
+</head>
+
+<style>
+h1{
+font-family:tahoma;
+padding-top:25px;
+font-size:42px;
+color:white;
+text-shadow: 4px 4px 4px gray
+}
+#JS{
+font-family:tahoma;
+font-size:24;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+#CPCdiv{
+font-family:tahoma;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+#CPSdiv{
+font-family:tahoma;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+button.CookieButton{
+height: 24px;
+width: 136;
+background-color:gray;
+color:white;
+margin-top: 20px
+}
+#main{
+width:800px;
+height:700px;
+background-color:lightgray;
+margin-left:auto;
+margin-right:auto;
+box-shadow: 4px 4px 4px gray;
+border: 2px solid black
+}
+#CPCcounter{
+font-family:tahoma;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+#CPScounter{
+font-family:tahoma;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+#total{
+font-family:tahoma;
+color:white;
+text-shadow: 2px 2px 2px gray
+padding-top: 25px
+}
+
+</style>
+
+<body>
+<div id="main">
+<h1 align="CENTER">Cookie Clicker Clone</h1>
+<hr width="550px">
+<script>
+var CPS = 0;
+var CPC = 1;
+var cookies = 0;
+var CPCPrice=50;
+var CPSPrice=100;
+var totalcookies=0;
+</script>
+
+<CENTER>
+<div id="JS">
+
+</div>
+<CENTER>
+<div id="total">
+
+</div>
+<div id="CPSdiv">
+
+</div>
+<div id="CPCdiv">
+
+</div>
+
+<div id="CPScounter">
+
+</div>
+<div id="CPCcounter">
+
+</div>
+
+<script>
+function addCookies(){
+cookies+=CPC;
+totalcookies+=CPC;
+document.getElementById('JS').innerHTML="Cookies: " + Math.round(cookies)
+document.getElementById('total').innerHTML="Total Cookies:" + Math.round(totalcookies)
+document.getElementById('CPSdiv').innerHTML="Price for CPS Upgade: " + Math.round(CPSPrice)
+document.getElementById('CPCdiv').innerHTML="Price for CPC Upgade: " + Math.round(CPCPrice)
+document.getElementById('CPScounter').innerHTML="Your current CPS: " + CPS;
+document.getElementById('CPCcounter').innerHTML="Your current CPC: " + CPC;
+}
+document.getElementById('JS').innerHTML="Cookies: " + Math.round(cookies)
+document.getElementById('total').innerHTML="Total Cookies:" + Math.round(totalcookies)
+document.getElementById('CPSdiv').innerHTML="Price for CPS Upgade: " + Math.round(CPSPrice)
+document.getElementById('CPCdiv').innerHTML="Price for CPC Upgade: " + Math.round(CPCPrice)
+document.getElementById('CPScounter').innerHTML="Your current CPS: " + CPS;
+document.getElementById('CPCcounter').innerHTML="Your current CPC: " + CPC;
+</script>
+
+<script>
+var increment = setInterval(increment,1000);
+function increment(){
+cookies = cookies % 9999999999999999999999999 + CPS;
+totalcookies = totalcookies % 9999999999999999999999999 + CPS;
+document.getElementById('JS').innerHTML="Cookies: " + Math.round(cookies)
+document.getElementById('total').innerHTML="Total Cookies:" + Math.round(totalcookies)
+document.getElementById('CPSdiv').innerHTML="Price for CPS Upgade: " + Math.round(CPSPrice)
+document.getElementById('CPCdiv').innerHTML="Price for CPC Upgade: " + Math.round(CPCPrice)
+document.getElementById('CPScounter').innerHTML="Your current CPS: " + CPS;
+document.getElementById('CPCcounter').innerHTML="Your current CPC: " + CPC;
+}
+</script>
+
+<!-- IF/ELSE Purchasing Area-->
+
+<script>
+function addCPC(){
+if(cookies>CPCPrice-1){
+CPC+=1
+cookies-=CPCPrice;
+CPCPrice*=1.2;
+document.getElementById('JS').innerHTML="Cookies: " + Math.round(cookies)
+document.getElementById('total').innerHTML="Total Cookies:" + Math.round(totalcookies)
+document.getElementById('CPSdiv').innerHTML="Price for CPS Upgade: " + Math.round(CPSPrice)
+document.getElementById('CPCdiv').innerHTML="Price for CPC Upgade: " + Math.round(CPCPrice)
+document.getElementById('CPScounter').innerHTML="Your current CPS: " + CPS;
+document.getElementById('CPCcounter').innerHTML="Your current CPC: " + CPC;
+}
+else
+{
+document.getElementById('errors').innerHTML="You can't afford this CPC Upgrade!";
+}
+}
+</script>
+
+<script>
+function addCPS(){
+if(cookies>CPSPrice-1){
+CPS+=1
+cookies-=CPSPrice;
+CPSPrice*=1.2
+document.getElementById('JS').innerHTML="Cookies: " + Math.round(cookies)
+document.getElementById('total').innerHTML="Total Cookies:" + Math.round(totalcookies)
+document.getElementById('CPSdiv').innerHTML="Price for CPS Upgade: " + Math.round(CPSPrice)
+document.getElementById('CPCdiv').innerHTML="Price for CPC Upgade: " + Math.round(CPCPrice)
+document.getElementById('CPScounter').innerHTML="Your current CPS: " + CPS;
+document.getElementById('CPCcounter').innerHTML="Your current CPC: " + CPC;
+}
+else
+{
+document.getElementById('errors').innerHTML="You can't afford this CPS Upgrade!";
+}
+}
+</script>
+
+<input draggable="false" type="image" src="cookie.gif" width="300px" class ="CookieButton" onclick='addCookies()'><br>
+<input type="image" src="pluscpc.png" class ="CookieButton" onclick='addCPC()'>
+<input type="image" src="pluscps.png" class ="CookieButton" onclick='addCPS()'>
+</div>
+
+</CENTER>
+</body>
+</html>
